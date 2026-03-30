@@ -95,7 +95,7 @@ class PrefixTree {
         if(lastNode && lastNode.endOfString)
             {
                 this.list.push(tempstring);
-                console.log(lastNode);
+                
             }
 
         if(current){ 
