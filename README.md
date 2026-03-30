@@ -17,8 +17,7 @@ Perfect for building high-performance autocomplete engines, search bar predictio
 You don't need NPM or Webpack to use this library. Just drop this `<script>` tag into the `<head>` of your HTML file:
 
 ```html
-<script src="(https://cdn.jsdelivr.net/gh/ratulmishra2904-netizen/autocomplete-trie@main/autocomplete_trie.js)"></script>
-
+<script src="(https://cdn.jsdelivr.net/gh/ratulmishra2904-netizen/autocomplete-trie@main/autocomplete_trie.js)">
 // 1. Initialize the dictionary
 const searchEngine = new PrefixTree();
 
@@ -37,10 +36,18 @@ searchEngine.autocomplete("D");
 // 4. Access the results
 console.log(searchEngine.list); 
 // Output: ["Dijkstra's shortest path", "Decision tree entropy", "Depth-first search (DFS)", "Dynamic programming"]
+
+</script>```
+
 Inserts a single word or phrase into the Trie.
+
 searchEngine.insert("Time complexity");
+
 Safely iterates through an array of strings and inserts them all into the Trie.
+
 searchEngine.insertAll(["Array", "Linked List", "Graph"]);
+
 .autocomplete(string)
 Searches the Trie for any words or phrases that begin with the provided prefix. Returns 0 on success, or -1 if no matches exist.
+
 searchEngine.autocomplete("Graph");
