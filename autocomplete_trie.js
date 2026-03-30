@@ -115,5 +115,5 @@ class PrefixTree {
 
 
 if (typeof window !== 'undefined') {
-    window.Trietree = Trietree; 
+    window.PrefixTree  = PrefixTree ; 
 }
