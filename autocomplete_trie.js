@@ -9,6 +9,21 @@ class PrefixTree {
     constructor() {
         this.root = [];
         this.list = [];
+        this.listMaxlen ;
+    }
+    // set maximum length of the list 
+    setlistMaxLen(num){
+       if(Number.isInteger(num)) this.listMaxlen = num;
+
+       else console.log("Not an Integer");
+    }
+    // checking the length of the tree 
+    checkListLen(){
+        if(this.list.length === this.listMaxlen){ 
+           
+            return true;
+        }
+        else return false;
     }
     // insert method
     insert(str){
@@ -47,27 +62,34 @@ class PrefixTree {
     }
     // display method
     display(root,str){
-    
-    for(let i = 0 ; i < root.length ; i ++ ){
+
+     
+     for(let i = 0 ; i < root.length ; i ++ ){
         
         if(root[i]){
             const tempstr = str + root[i].value;
 
-            if(root[i].endOfString) this.list.push(tempstr) ;
+            if(root[i].endOfString) this.list.push(tempstr);
+        
 
-            if(! root[i].next){
+            if(! root[i].next ){
                 continue;
             }
+
             
             this.display(root[i].next , tempstr);
+            
         }
         
-        else continue;
+        if(this.listMaxlen !== 0 ) {
+                    const res = this.checkListLen();
+                    if(res) return ;
+            };
         
     }
     return ;
     }
-
+ // autocomplete the str given 
     autocomplete(str){
         let current = this.root;
         let tempstring = "";
@@ -105,6 +127,7 @@ class PrefixTree {
         return 0 ;
 
     }
+    // empty the list 
     emptyList(){
         this.list = [];
         return 0 ;
@@ -115,5 +138,5 @@ class PrefixTree {
 
 
 if (typeof window !== 'undefined') {
-    window.PrefixTree  = PrefixTree ; 
+    window.PrefixTree = PrefixTree; 
 }
